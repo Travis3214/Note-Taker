@@ -18,3 +18,30 @@ const PORT = process.env.PORT || 3001;
 // Creating an array for notes // 
 const notesArray = [];
 
+// Set middleware for json/html //
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+// Creating path to static homepage
+app.use(express.static('public'));
+
+// Need a get for the notes // 
+app.get('/notes', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
+// Need a get //
+app.get('/api/notes', (req, res) =>
+    res.sendFile(path.join(__dirname, '/db/db.json'))
+    readFromFile('./db/db.json').then((data) => res.json(Json.parse(data)));
+);
+
+// Need a post // 
+
+
+// Create a get for the homepage // 
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+// Port needs a listener //
