@@ -32,8 +32,7 @@ app.get('/notes', (req, res) =>
 
 // Need a get //
 app.get('/api/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/db/db.json'))
-    readFromFile('./db/db.json').then((data) => res.json(Json.parse(data)));
+    readFromFile('./db/db.json').then((data) => res.json(Json.parse(data)))
 );
 
 // Need a post // 
@@ -45,3 +44,4 @@ app.get('*', (req, res) =>
 );
 
 // Port needs a listener //
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
