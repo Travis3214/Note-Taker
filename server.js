@@ -25,6 +25,10 @@ app.use(express.urlencoded({extended:true}));
 // Creating path to static homepage
 app.use(express.static('public'));
 
+app.get('/', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
 // Need a get for the notes // 
 app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
@@ -32,7 +36,7 @@ app.get('/notes', (req, res) =>
 
 // Need a get //
 app.get('/api/notes', (req, res) =>
-    readFromFile('./db/db.json').then((data) => res.json(Json.parse(data)))
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
 // Need a post // 
