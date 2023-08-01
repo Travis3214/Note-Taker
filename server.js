@@ -49,6 +49,15 @@ app.post('/api/notes', (req, res) => {
     }
 });
 
+// Added a delete for notes //
+app.delete('/api/notes/:id', (req, res) => {
+    readFromFile('./db/db.json').then((data) => {
+        const originalData = JSON.parse(data);
+        const newData = originalData.filter(note => note.id !== req.params.id);
+        writeToFile('./db/db.json', newData);
+    })
+})
+
 // Create a get for the homepage // 
 app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/index.html'))
