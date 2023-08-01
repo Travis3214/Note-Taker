@@ -18,6 +18,9 @@
   ## Usage
   https://travis-6df536f74095.herokuapp.com/
 
+  ![screenshot](./public/assets/images/Screenshot%202023-08-01%20at%206.07.10%20PM.png)
+  ![screenshot2](./public/assets/images/Screenshot%202023-08-01%20at%206.07.30%20PM.png)
+
   ## License
   https://mit-license.org/
 
